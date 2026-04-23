@@ -18,11 +18,11 @@ const navItems = [
 
 const masterclasses = [
   { title: "Гипсовые фигурки", desc: "Заливаем гипс в формы, расписываем готовые фигурки красками и лаком. Можно подарить близким или поставить дома.", age: "4–14 лет", duration: "60 мин", emoji: "🪆", price: "500 ₽" },
-  { title: "Картины текстурной пастой", desc: "Создаём рельефные картины с объёмными узорами. Паста, шпатель, акрил — получается настоящий подарок для дома.", age: "7–14 лет", duration: "90 мин", emoji: "🖼️", price: "700 ₽" },
-  { title: "Банты и цветы", desc: "Мастерим атласные банты, цветы из лент и ткани. Носить самой или подарить маме, подруге, воспитателю.", age: "5–12 лет", duration: "60 мин", emoji: "🎀", price: "450 ₽" },
-  { title: "Бижутерия и украшения", desc: "Создаём кольца, серьги, браслеты из полимерной глины и бусин. Готовое украшение можно подарить или носить самой.", age: "8–14 лет", duration: "75 мин", emoji: "💎", price: "550 ₽" },
-  { title: "Игрушки из фетра", desc: "Шьём мягкие игрушки и брелоки из фетра — без машинки. Отличный подарок ручной работы для друга или родителей.", age: "6–12 лет", duration: "90 мин", emoji: "🧸", price: "600 ₽" },
-  { title: "Рисование картин", desc: "Пишем картины акрилом по холсту. Готовую работу можно повесить дома или подарить — выглядит как настоящее искусство.", age: "5–14 лет", duration: "75 мин", emoji: "🎨", price: "600 ₽" },
+  { title: "Картины текстурной пастой", desc: "Создаём рельефные картины с объёмными узорами. Паста, шпатель, акрил — получается настоящий подарок для дома.", age: "7–14 лет", duration: "90 мин", emoji: "🖼️", price: "500 ₽" },
+  { title: "Банты и цветы", desc: "Мастерим атласные банты, цветы из лент и ткани. Носить самой или подарить маме, подруге, воспитателю.", age: "5–12 лет", duration: "60 мин", emoji: "🎀", price: "500 ₽" },
+  { title: "Бижутерия и украшения", desc: "Создаём кольца, серьги, браслеты из полимерной глины и бусин. Готовое украшение можно подарить или носить самой.", age: "8–14 лет", duration: "75 мин", emoji: "💎", price: "500 ₽" },
+  { title: "Игрушки из фетра", desc: "Шьём мягкие игрушки и брелоки из фетра — без машинки. Отличный подарок ручной работы для друга или родителей.", age: "6–12 лет", duration: "90 мин", emoji: "🧸", price: "500 ₽" },
+  { title: "Рисование картин", desc: "Пишем картины акрилом по холсту. Готовую работу можно повесить дома или подарить — выглядит как настоящее искусство.", age: "5–14 лет", duration: "75 мин", emoji: "🎨", price: "500 ₽" },
 ];
 
 const schedule = [
@@ -73,7 +73,7 @@ export default function Index() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="#" className="font-cormorant text-xl font-semibold text-foreground tracking-wide">
-            Мастерская
+            Шалаш
           </a>
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
@@ -234,7 +234,7 @@ export default function Index() {
               <div>
                 <p className="font-golos text-primary-foreground/70 text-sm mb-2">Стоимость занятия</p>
                 <div className="font-cormorant text-4xl md:text-5xl font-light text-primary-foreground">
-                  от 450 до 700 ₽ / час
+                  500 ₽ / занятие
                 </div>
                 <p className="font-golos text-primary-foreground/80 text-sm mt-3 max-w-md">
                   Все материалы включены. Можно прийти на одно занятие — без абонемента и обязательств.
@@ -460,9 +460,9 @@ export default function Index() {
       {/* FOOTER */}
       <footer className="border-t border-border py-10 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="font-cormorant text-xl font-semibold text-foreground">Мастерская</div>
+          <div className="font-cormorant text-xl font-semibold text-foreground">Шалаш</div>
           <div className="font-golos text-sm text-muted-foreground text-center">
-            Детская художественная студия · Все права защищены · 2024
+            Детский творческий досуг · Все права защищены · 2025
           </div>
           <div className="flex gap-6 flex-wrap justify-center">
             {navItems.slice(0, 4).map((item) => (
