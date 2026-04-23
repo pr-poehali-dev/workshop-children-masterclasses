@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMG = "https://cdn.poehali.dev/projects/32cda1da-4644-472f-9844-46ba0932e212/files/268192ca-6b73-4c76-ae27-ff5ea9b9c929.jpg";
+const HERO_IMG = "https://cdn.poehali.dev/projects/32cda1da-4644-472f-9844-46ba0932e212/files/dab38c32-3bae-451d-a254-30120d88a5a9.jpg";
 const TEACHER_IMG = "https://cdn.poehali.dev/projects/32cda1da-4644-472f-9844-46ba0932e212/files/a4a81934-d585-4707-9ea6-e4e6294de954.jpg";
-const GALLERY_IMG = "https://cdn.poehali.dev/projects/32cda1da-4644-472f-9844-46ba0932e212/files/a0ead9e1-965e-4d93-9f51-6369bfa690cd.jpg";
+const GALLERY_IMG = "https://cdn.poehali.dev/projects/32cda1da-4644-472f-9844-46ba0932e212/files/98bc8386-e7e7-4fa9-9755-bf23517b504f.jpg";
+const CRAFT_IMG = "https://cdn.poehali.dev/projects/32cda1da-4644-472f-9844-46ba0932e212/files/f2266233-73f1-47a4-9f39-127aeefb3284.jpg";
 
 const navItems = [
   { label: "О мастерской", href: "#about" },
@@ -16,31 +17,33 @@ const navItems = [
 ];
 
 const masterclasses = [
-  { title: "Акварель", desc: "Мягкая живопись водяными красками — учимся смешивать цвета и передавать настроение.", age: "5–8 лет", duration: "60 мин", emoji: "🎨" },
-  { title: "Лепка из глины", desc: "Работа руками с натуральной глиной — создаём фигурки и посуду.", age: "6–12 лет", duration: "90 мин", emoji: "🏺" },
-  { title: "Коллаж и аппликация", desc: "Создаём картины из бумаги, ткани и природных материалов.", age: "4–10 лет", duration: "60 мин", emoji: "✂️" },
-  { title: "Портрет и наброски", desc: "Основы рисунка: пропорции, линии, наблюдение. Для детей постарше.", age: "9–14 лет", duration: "75 мин", emoji: "✏️" },
+  { title: "Гипсовые фигурки", desc: "Заливаем гипс в формы, расписываем готовые фигурки красками и лаком. Уходите домой с готовым шедевром.", age: "4–14 лет", duration: "60 мин", emoji: "🪆" },
+  { title: "Картины текстурной пастой", desc: "Создаём рельефные картины с объёмными узорами. Паста, шпатель, акрил — и холст оживает.", age: "7–14 лет", duration: "90 мин", emoji: "🖼️" },
+  { title: "Банты и цветы", desc: "Мастерим атласные банты, цветы из лент и ткани. Забираем домой готовое украшение.", age: "5–12 лет", duration: "60 мин", emoji: "🎀" },
+  { title: "Бижутерия и украшения", desc: "Создаём кольца, серьги, браслеты из полимерной глины, бусин и фурнитуры.", age: "8–14 лет", duration: "75 мин", emoji: "💎" },
+  { title: "Игрушки из фетра", desc: "Шьём мягкие игрушки и брелоки из фетра — без машинки, только иголка и нить.", age: "6–12 лет", duration: "90 мин", emoji: "🧸" },
+  { title: "Рисование картин", desc: "Пишем картины акрилом по холсту — от простых пейзажей до абстрактных композиций.", age: "5–14 лет", duration: "75 мин", emoji: "🎨" },
 ];
 
 const schedule = [
-  { day: "Понедельник", time: "16:00 – 17:00", name: "Акварель", group: "Младшая группа" },
-  { day: "Вторник", time: "15:30 – 17:00", name: "Лепка из глины", group: "Средняя группа" },
-  { day: "Среда", time: "16:00 – 17:00", name: "Коллаж и аппликация", group: "Младшая группа" },
-  { day: "Четверг", time: "16:30 – 17:45", name: "Портрет и наброски", group: "Старшая группа" },
-  { day: "Суббота", time: "11:00 – 12:30", name: "Лепка из глины", group: "Смешанная группа" },
-  { day: "Воскресенье", time: "12:00 – 13:00", name: "Акварель", group: "Семейное занятие" },
+  { day: "Понедельник", time: "16:00 – 17:00", name: "Гипсовые фигурки", group: "Младшая группа" },
+  { day: "Вторник", time: "15:30 – 17:00", name: "Картины текстурной пастой", group: "Средняя группа" },
+  { day: "Среда", time: "16:00 – 17:00", name: "Банты и цветы", group: "Младшая группа" },
+  { day: "Четверг", time: "16:30 – 17:45", name: "Бижутерия и украшения", group: "Старшая группа" },
+  { day: "Суббота", time: "11:00 – 12:30", name: "Игрушки из фетра", group: "Смешанная группа" },
+  { day: "Воскресенье", time: "12:00 – 13:00", name: "Рисование картин", group: "Семейное занятие" },
 ];
 
 const reviews = [
-  { name: "Мария Н.", text: "Дочка ходит уже полгода и каждый раз возвращается домой с горящими глазами. Преподаватель удивительно находит подход к детям.", child: "Настя, 7 лет", stars: 5 },
-  { name: "Алексей К.", text: "Сын никогда не любил рисование, а теперь сам просит пойти в мастерскую. Атмосфера там особенная — тёплая и вдохновляющая.", child: "Артём, 9 лет", stars: 5 },
-  { name: "Елена В.", text: "Отличный подход к обучению: без давления, без сравнений. Ребёнок учится получать удовольствие от творчества.", child: "Соня, 6 лет", stars: 5 },
-  { name: "Дмитрий Ш.", text: "Малые группы — это огромный плюс. Педагог успевает уделить внимание каждому ребёнку индивидуально.", child: "Миша, 8 лет", stars: 5 },
-  { name: "Ольга Р.", text: "Мы пришли на пробное занятие и остались. Уже год ходим без пропусков. Спасибо за такую мастерскую!", child: "Даша, 10 лет", stars: 5 },
-  { name: "Светлана М.", text: "Работы, которые делает дочка, мы уже развешиваем по всей квартире. Настоящее искусство, очень горжусь!", child: "Лиза, 8 лет", stars: 5 },
+  { name: "Мария Н.", text: "Дочка расписала гипсовую фигурку и теперь она стоит у нас на почётном месте. Пришли на один мастер-класс — записались на весь месяц!", child: "Настя, 7 лет", stars: 5 },
+  { name: "Алексей К.", text: "Сын сделал картину текстурной пастой — такую красоту я не ожидал увидеть. Теперь висит в гостиной, все гости спрашивают откуда.", child: "Артём, 10 лет", stars: 5 },
+  { name: "Елена В.", text: "Дочка сделала банты себе и всем подругам. Педагог терпеливо объяснила каждый шаг — даже я научилась!", child: "Соня, 8 лет", stars: 5 },
+  { name: "Дмитрий Ш.", text: "Сын в восторге от занятий по бижутерии — подарил маме серьги собственного изготовления на день рождения. Незабываемо!", child: "Миша, 11 лет", stars: 5 },
+  { name: "Ольга Р.", text: "Ходим на все направления по очереди. Каждый раз домой уходим с готовой работой — это очень ценно, результат виден сразу!", child: "Даша, 9 лет", stars: 5 },
+  { name: "Светлана М.", text: "Игрушка из фетра, которую сшила дочка, стала её любимой. Говорит, что сама сделала — и это правда! Очень горжусь.", child: "Лиза, 7 лет", stars: 5 },
 ];
 
-const galleryImages = [GALLERY_IMG, HERO_IMG, TEACHER_IMG, GALLERY_IMG, HERO_IMG, TEACHER_IMG];
+const galleryImages = [HERO_IMG, GALLERY_IMG, CRAFT_IMG, GALLERY_IMG, CRAFT_IMG, HERO_IMG];
 
 function useFadeIn() {
   useEffect(() => {
@@ -107,15 +110,15 @@ export default function Index() {
         <div className="flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-20 md:py-0">
           <div className="max-w-xl">
             <p className="font-golos text-sm tracking-[0.2em] uppercase text-primary mb-6">
-              Детская художественная студия
+              Детская творческая мастерская
             </p>
             <h1 className="font-cormorant text-5xl md:text-6xl lg:text-7xl font-light text-foreground leading-[1.1] mb-6">
-              Место, где<br />
-              <em className="not-italic text-primary">рождается</em><br />
-              творчество
+              Создаём руками,<br />
+              <em className="not-italic text-primary">забираем</em><br />
+              домой
             </h1>
             <p className="font-golos text-muted-foreground text-lg leading-relaxed mb-10 max-w-md">
-              Маленькие группы, живые материалы и настоящий художник рядом. Для детей от 4 до 14 лет.
+              Гипс, текстурные картины, банты, игрушки, бижутерия — каждый ребёнок уходит с готовой работой. Для детей от 4 до 14 лет.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -154,13 +157,13 @@ export default function Index() {
             </div>
             <div className="md:col-span-2 flex flex-col gap-8">
               <p className="font-golos text-muted-foreground text-lg leading-relaxed">
-                Мастерская — это небольшая уютная студия, где каждый ребёнок может раскрыться. Мы не ставим оценок и не сравниваем работы. Здесь важен процесс, а не результат.
+                Мастерская — это уютное место, где ребёнок создаёт что-то настоящее своими руками. Гипсовые фигурки, рельефные картины, украшения, игрушки — каждое занятие заканчивается готовой работой, которую можно забрать домой.
               </p>
               <div className="grid sm:grid-cols-3 gap-6">
                 {[
-                  { value: "5+", label: "лет работы" },
-                  { value: "6–8", label: "детей в группе" },
-                  { value: "200+", label: "выпускников" },
+                  { value: "6+", label: "направлений творчества" },
+                  { value: "до 8", label: "детей в группе" },
+                  { value: "100%", label: "уходят с результатом" },
                 ].map((stat) => (
                   <div key={stat.label} className="bg-secondary rounded-xl p-6 text-center">
                     <div className="font-cormorant text-4xl font-medium text-primary mb-1">{stat.value}</div>
@@ -169,7 +172,7 @@ export default function Index() {
                 ))}
               </div>
               <p className="font-golos text-muted-foreground leading-relaxed">
-                Мы работаем с натуральными материалами: льняными холстами, профессиональными акварелями, глиной. Всё необходимое уже есть в студии — приходите с чистыми руками.
+                Все материалы включены в стоимость занятия. Гипс, акрил, ткань, фурнитура, фетр — всё уже есть в студии. Приходите просто так, в хорошем настроении.
               </p>
             </div>
           </div>
@@ -183,7 +186,7 @@ export default function Index() {
             <p className="font-golos text-xs tracking-[0.2em] uppercase text-primary mb-4">Программы</p>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light text-foreground">Мастер-классы</h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {masterclasses.map((mc, i) => (
               <div
                 key={mc.title}
