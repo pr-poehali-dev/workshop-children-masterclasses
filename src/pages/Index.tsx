@@ -17,12 +17,12 @@ const navItems = [
 ];
 
 const masterclasses = [
-  { title: "Гипсовые фигурки", desc: "Заливаем гипс в формы, расписываем готовые фигурки красками и лаком. Уходите домой с готовым шедевром.", age: "4–14 лет", duration: "60 мин", emoji: "🪆" },
-  { title: "Картины текстурной пастой", desc: "Создаём рельефные картины с объёмными узорами. Паста, шпатель, акрил — и холст оживает.", age: "7–14 лет", duration: "90 мин", emoji: "🖼️" },
-  { title: "Банты и цветы", desc: "Мастерим атласные банты, цветы из лент и ткани. Забираем домой готовое украшение.", age: "5–12 лет", duration: "60 мин", emoji: "🎀" },
-  { title: "Бижутерия и украшения", desc: "Создаём кольца, серьги, браслеты из полимерной глины, бусин и фурнитуры.", age: "8–14 лет", duration: "75 мин", emoji: "💎" },
-  { title: "Игрушки из фетра", desc: "Шьём мягкие игрушки и брелоки из фетра — без машинки, только иголка и нить.", age: "6–12 лет", duration: "90 мин", emoji: "🧸" },
-  { title: "Рисование картин", desc: "Пишем картины акрилом по холсту — от простых пейзажей до абстрактных композиций.", age: "5–14 лет", duration: "75 мин", emoji: "🎨" },
+  { title: "Гипсовые фигурки", desc: "Заливаем гипс в формы, расписываем готовые фигурки красками и лаком. Можно подарить близким или поставить дома.", age: "4–14 лет", duration: "60 мин", emoji: "🪆", price: "500 ₽" },
+  { title: "Картины текстурной пастой", desc: "Создаём рельефные картины с объёмными узорами. Паста, шпатель, акрил — получается настоящий подарок для дома.", age: "7–14 лет", duration: "90 мин", emoji: "🖼️", price: "700 ₽" },
+  { title: "Банты и цветы", desc: "Мастерим атласные банты, цветы из лент и ткани. Носить самой или подарить маме, подруге, воспитателю.", age: "5–12 лет", duration: "60 мин", emoji: "🎀", price: "450 ₽" },
+  { title: "Бижутерия и украшения", desc: "Создаём кольца, серьги, браслеты из полимерной глины и бусин. Готовое украшение можно подарить или носить самой.", age: "8–14 лет", duration: "75 мин", emoji: "💎", price: "550 ₽" },
+  { title: "Игрушки из фетра", desc: "Шьём мягкие игрушки и брелоки из фетра — без машинки. Отличный подарок ручной работы для друга или родителей.", age: "6–12 лет", duration: "90 мин", emoji: "🧸", price: "600 ₽" },
+  { title: "Рисование картин", desc: "Пишем картины акрилом по холсту. Готовую работу можно повесить дома или подарить — выглядит как настоящее искусство.", age: "5–14 лет", duration: "75 мин", emoji: "🎨", price: "600 ₽" },
 ];
 
 const schedule = [
@@ -157,7 +157,7 @@ export default function Index() {
             </div>
             <div className="md:col-span-2 flex flex-col gap-8">
               <p className="font-golos text-muted-foreground text-lg leading-relaxed">
-                Мы не учим рисовать — мы даём детям время и материалы, чтобы сделать что-то своими руками. Пришёл, сделал, ушёл с готовой вещью. Всё просто.
+                Мастерская — это не только творчество. Здесь дети знакомятся, общаются и находят новых друзей. Пока руки заняты делом, завязываются настоящие дружбы.
               </p>
               <div className="grid sm:grid-cols-3 gap-6">
                 {[
@@ -168,6 +168,20 @@ export default function Index() {
                   <div key={stat.label} className="bg-secondary rounded-xl p-6 text-center">
                     <div className="font-cormorant text-4xl font-medium text-primary mb-1">{stat.value}</div>
                     <div className="font-golos text-sm text-muted-foreground">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {[
+                  { icon: "Handshake", text: "Знакомятся и находят новых друзей" },
+                  { icon: "Gift", text: "Делают изделия в подарок близким" },
+                  { icon: "Smile", text: "Уходят с гордостью за свою работу" },
+                ].map((item) => (
+                  <div key={item.text} className="flex flex-col items-center text-center gap-3 bg-secondary rounded-xl p-5">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Icon name={item.icon} size={18} className="text-primary" />
+                    </div>
+                    <p className="font-golos text-sm text-foreground leading-snug">{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -194,7 +208,10 @@ export default function Index() {
                 className="section-fade bg-background rounded-2xl p-7 flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <div className="text-4xl">{mc.emoji}</div>
+                <div className="flex items-start justify-between">
+                  <div className="text-4xl">{mc.emoji}</div>
+                  <span className="font-cormorant text-2xl font-semibold text-primary">{mc.price}</span>
+                </div>
                 <h3 className="font-cormorant text-2xl font-medium text-foreground">{mc.title}</h3>
                 <p className="font-golos text-sm text-muted-foreground leading-relaxed flex-1">{mc.desc}</p>
                 <div className="flex flex-col gap-1.5 pt-2 border-t border-border">
@@ -209,6 +226,31 @@ export default function Index() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* PRICE BANNER */}
+          <div className="mt-14 section-fade">
+            <div className="bg-primary rounded-2xl px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div>
+                <p className="font-golos text-primary-foreground/70 text-sm mb-2">Стоимость занятия</p>
+                <div className="font-cormorant text-4xl md:text-5xl font-light text-primary-foreground">
+                  от 450 до 700 ₽ / час
+                </div>
+                <p className="font-golos text-primary-foreground/80 text-sm mt-3 max-w-md">
+                  Все материалы включены. Можно прийти на одно занятие — без абонемента и обязательств.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
+                <div className="bg-primary-foreground/10 border border-primary-foreground/20 rounded-xl px-6 py-4 text-center">
+                  <div className="font-cormorant text-2xl font-medium text-primary-foreground">1 занятие</div>
+                  <div className="font-golos text-sm text-primary-foreground/70 mt-1">без записи заранее</div>
+                </div>
+                <div className="bg-primary-foreground/15 border border-primary-foreground/30 rounded-xl px-6 py-4 text-center">
+                  <div className="font-cormorant text-2xl font-medium text-primary-foreground">Абонемент</div>
+                  <div className="font-golos text-sm text-primary-foreground/70 mt-1">скидка при оплате месяца</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
