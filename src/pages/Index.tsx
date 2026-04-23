@@ -110,28 +110,28 @@ export default function Index() {
         <div className="flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-20 md:py-0">
           <div className="max-w-xl">
             <p className="font-golos text-sm tracking-[0.2em] uppercase text-primary mb-6">
-              Детская творческая мастерская
+              Детский творческий досуг
             </p>
             <h1 className="font-cormorant text-5xl md:text-6xl lg:text-7xl font-light text-foreground leading-[1.1] mb-6">
-              Создаём руками,<br />
-              <em className="not-italic text-primary">забираем</em><br />
-              домой
+              Сделал<br />
+              своими руками —<br />
+              <em className="not-italic text-primary">забрал домой</em>
             </h1>
             <p className="font-golos text-muted-foreground text-lg leading-relaxed mb-10 max-w-md">
-              Гипс, текстурные картины, банты, игрушки, бижутерия — каждый ребёнок уходит с готовой работой. Для детей от 4 до 14 лет.
+              Ребёнок приходит, мастерит настоящую вещь и уходит с ней. Гипс, картины, банты, игрушки, украшения — никакой теории, только руки и результат.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="#schedule"
+                href="#contacts"
                 className="inline-flex items-center justify-center px-8 py-3.5 bg-primary text-primary-foreground font-golos font-medium rounded-lg hover:opacity-90 transition-opacity"
               >
-                Записаться на занятие
+                Записаться
               </a>
               <a
                 href="#masterclasses"
                 className="inline-flex items-center justify-center px-8 py-3.5 border border-border text-foreground font-golos font-medium rounded-lg hover:bg-secondary transition-colors"
               >
-                Узнать о курсах
+                Что делаем
               </a>
             </div>
           </div>
@@ -150,20 +150,20 @@ export default function Index() {
         <div className="max-w-6xl mx-auto section-fade">
           <div className="grid md:grid-cols-3 gap-12">
             <div className="md:col-span-1">
-              <p className="font-golos text-xs tracking-[0.2em] uppercase text-primary mb-4">О мастерской</p>
+              <p className="font-golos text-xs tracking-[0.2em] uppercase text-primary mb-4">О нас</p>
               <h2 className="font-cormorant text-4xl md:text-5xl font-light text-foreground leading-tight">
-                Атмосфера,<br />в которой<br />хочется творить
+                Досуг,<br />после которого<br />что-то остаётся
               </h2>
             </div>
             <div className="md:col-span-2 flex flex-col gap-8">
               <p className="font-golos text-muted-foreground text-lg leading-relaxed">
-                Мастерская — это уютное место, где ребёнок создаёт что-то настоящее своими руками. Гипсовые фигурки, рельефные картины, украшения, игрушки — каждое занятие заканчивается готовой работой, которую можно забрать домой.
+                Мы не учим рисовать — мы даём детям время и материалы, чтобы сделать что-то своими руками. Пришёл, сделал, ушёл с готовой вещью. Всё просто.
               </p>
               <div className="grid sm:grid-cols-3 gap-6">
                 {[
-                  { value: "6+", label: "направлений творчества" },
-                  { value: "до 8", label: "детей в группе" },
-                  { value: "100%", label: "уходят с результатом" },
+                  { value: "6+", label: "видов изделий" },
+                  { value: "до 8", label: "детей на занятии" },
+                  { value: "100%", label: "уходят с готовой вещью" },
                 ].map((stat) => (
                   <div key={stat.label} className="bg-secondary rounded-xl p-6 text-center">
                     <div className="font-cormorant text-4xl font-medium text-primary mb-1">{stat.value}</div>
@@ -172,7 +172,7 @@ export default function Index() {
                 ))}
               </div>
               <p className="font-golos text-muted-foreground leading-relaxed">
-                Все материалы включены в стоимость занятия. Гипс, акрил, ткань, фурнитура, фетр — всё уже есть в студии. Приходите просто так, в хорошем настроении.
+                Все материалы уже в мастерской — гипс, краски, ткань, лента, фетр, фурнитура. Ничего с собой брать не нужно. Ребёнок просто приходит и начинает делать.
               </p>
             </div>
           </div>
@@ -183,8 +183,9 @@ export default function Index() {
       <section id="masterclasses" className="py-24 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 section-fade">
-            <p className="font-golos text-xs tracking-[0.2em] uppercase text-primary mb-4">Программы</p>
-            <h2 className="font-cormorant text-4xl md:text-5xl font-light text-foreground">Мастер-классы</h2>
+            <p className="font-golos text-xs tracking-[0.2em] uppercase text-primary mb-4">Что делаем</p>
+            <h2 className="font-cormorant text-4xl md:text-5xl font-light text-foreground">Виды изделий</h2>
+            <p className="font-golos text-muted-foreground mt-4 max-w-xl mx-auto">На каждом занятии — одно конкретное изделие. Ребёнок делает его сам, от начала до конца.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {masterclasses.map((mc, i) => (
@@ -238,7 +239,8 @@ export default function Index() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 section-fade">
             <p className="font-golos text-xs tracking-[0.2em] uppercase text-primary mb-4">Когда приходить</p>
-            <h2 className="font-cormorant text-4xl md:text-5xl font-light text-foreground">Расписание занятий</h2>
+            <h2 className="font-cormorant text-4xl md:text-5xl font-light text-foreground">Расписание</h2>
+            <p className="font-golos text-muted-foreground mt-4 max-w-lg mx-auto">Занятия проходят в небольших группах. Каждый ребёнок работает в своём темпе.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {schedule.map((s, i) => (
@@ -257,7 +259,7 @@ export default function Index() {
             ))}
           </div>
           <div className="mt-10 text-center section-fade">
-            <p className="font-golos text-muted-foreground mb-6">Первое занятие — бесплатно. Записывайтесь, чтобы познакомиться с мастерской.</p>
+            <p className="font-golos text-muted-foreground mb-6">Можно прийти на одно занятие — без абонемента и обязательств. Просто запишитесь заранее.</p>
             <a
               href="#contacts"
               className="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground font-golos font-medium rounded-lg hover:opacity-90 transition-opacity"
@@ -275,6 +277,7 @@ export default function Index() {
           <div className="text-center mb-16 section-fade">
             <p className="font-golos text-xs tracking-[0.2em] uppercase text-primary mb-4">Что говорят родители</p>
             <h2 className="font-cormorant text-4xl md:text-5xl font-light text-foreground">Отзывы</h2>
+            <p className="font-golos text-muted-foreground mt-4 max-w-lg mx-auto">Дети возвращаются домой с готовой вещью — и рассказывают о ней всем.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {reviews.map((r, i) => (
@@ -312,23 +315,23 @@ export default function Index() {
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-background rounded-2xl p-5 shadow-lg hidden md:block">
-                <div className="font-cormorant text-3xl font-medium text-primary">12 лет</div>
-                <div className="font-golos text-xs text-muted-foreground">педагогического опыта</div>
+                <div className="font-cormorant text-3xl font-medium text-primary">5+ лет</div>
+                <div className="font-golos text-xs text-muted-foreground">ведёт детский досуг</div>
               </div>
             </div>
             <div>
-              <p className="font-golos text-xs tracking-[0.2em] uppercase text-primary mb-6">Преподаватель</p>
+              <p className="font-golos text-xs tracking-[0.2em] uppercase text-primary mb-6">Ведущий мастер</p>
               <h2 className="font-cormorant text-4xl md:text-5xl font-light text-foreground mb-6">
                 Анна Сергеевна<br />Петрова
               </h2>
               <p className="font-golos text-muted-foreground leading-relaxed mb-6">
-                Художник и педагог с профессиональным образованием в области изобразительного искусства. Работает с детьми с 2012 года — каждого ребёнка воспринимает как уникальную личность с особым взглядом на мир.
+                Ведёт занятия по детскому творческому досугу уже более 5 лет. Умеет объяснить так, чтобы ребёнок любого возраста справился сам — и был горд результатом.
               </p>
               <p className="font-golos text-muted-foreground leading-relaxed mb-8">
-                Участница городских и региональных выставок. Убеждена, что творчество — это не талант, а навык, который можно развить в любом возрасте.
+                Главный принцип: никакого давления. Ребёнок работает в своём темпе, а готовое изделие — его личная гордость, которую он несёт домой.
               </p>
               <div className="flex flex-wrap gap-3">
-                {["Акварель", "Масло", "Графика", "Лепка", "Коллаж"].map((tag) => (
+                {["Гипс", "Текстурные картины", "Банты", "Бижутерия", "Фетр"].map((tag) => (
                   <span key={tag} className="font-golos text-sm px-4 py-1.5 bg-background border border-border rounded-full text-muted-foreground">
                     {tag}
                   </span>
